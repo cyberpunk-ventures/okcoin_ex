@@ -4,6 +4,6 @@ defmodule OkcoinExTest do
 
   test "get ticker for BTC" do
     {:ok, ticker_data} = Okcoin.ticker("BTC", "CNY")
-    assert ticker_data == %{}
+    assert ticker_data["date"] && ticker_data["ticker"]
   end
 end

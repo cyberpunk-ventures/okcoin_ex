@@ -1,8 +1,9 @@
 defmodule OkcoinExTest do
-  use ExUnit.Case
-  doctest OkcoinEx
+  use ExUnit.Case, async: true
+  doctest Okcoin
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "get ticker for BTC" do
+    {:ok, ticker_data} = Okcoin.ticker("BTC", "CNY")
+    assert ticker_data == %{}
   end
 end
